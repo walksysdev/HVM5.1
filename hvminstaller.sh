@@ -129,7 +129,7 @@ echo "Installing LXC BOT V6..."
 apt update
 apt install git -y
 
-git clone https://github.com/mrrangerxd/VPSbotv6
+git clone https://github.com/walksysdev/VPSbotv6
 cd VPSbotv6
 
 # Ubuntu setup
@@ -179,9 +179,9 @@ echo -e "[global]\nbreak-system-packages = true" > ~/.config/pip/pip.conf
 read -p "Enter DISCORD BOT TOKEN: " TOKEN
 read -p "Enter MAIN ADMIN ID: " ADMIN
 
-cat <<EOF > /etc/systemd/system/unixbot.service
+cat <<EOF > /etc/systemd/system/bot.service
 [Unit]
-Description=UnixBot Discord Bot
+Description=Bot Discord Bot
 After=network.target
 
 [Service]
@@ -202,8 +202,8 @@ WantedBy=multi-user.target
 EOF
 
 systemctl daemon-reload
-systemctl enable unixbot
-systemctl restart unixbot
+systemctl enable bot
+systemctl restart bot
 
 echo "LXC BOT V6 Installed & Running"
 
